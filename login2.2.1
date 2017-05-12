@@ -1,0 +1,55 @@
+#!usr/bin/env python
+# -*- coding:utf-8 -*-
+
+
+from random import choice
+import string
+import getpass
+import time
+
+
+def GenPassword(length=8, chars=string.digits + string.digits):
+    return ''.join([choice(chars) for i in range(length)])
+
+
+def md5(str):
+    import hashlib
+    m = hashlib.md5()
+    m.update(str)
+    return m.hexdigest()
+	
+n = 'tz950313'
+m = 123456
+name = raw_input("Username:")
+password = raw_input("Password:")
+s = md5((str(m)))
+p1 = md5(password)
+while name != n or str(s)!= str(md5(password)):
+	print " Please input the correct username and password "
+	name = raw_input("Username:")
+	password = raw_input("Password:")
+
+
+if __name__ == "__main__":
+    x = []
+    n = (GenPassword(6))
+    y = x.append(n)
+    print "security code:", n
+    code = raw_input("Input:")
+while str(code) != str(n):
+    x = []
+    n = (GenPassword(6))
+    y = x.append(n)
+    print "security code:", n
+    code = raw_input("Input:")
+
+i = 5
+i = i - 1
+while i != '1' and i > 1:
+    time.sleep(1)
+    i = i - 1
+    print ('>>>'), i
+
+time.sleep(1)
+
+print("success login")
